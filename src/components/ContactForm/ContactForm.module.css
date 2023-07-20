@@ -21,7 +21,7 @@ input:focus {
     outline-color: #469597;
     
 }
-button {
+.btn {
     cursor: pointer;
     display: block;
     margin: 0 auto;

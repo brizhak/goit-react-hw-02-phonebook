@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import './ContactList.module.css';
+import style from './ContactList.module.css';
 
 class ContactList extends Component {
   static defaultProps = {
@@ -12,13 +12,23 @@ class ContactList extends Component {
   };
 
   render() {
-    const { contacts } = this.props;
+    const { contacts, handleDelete } = this.props;
 
     return (
       <ul>
         {contacts.map(contact => (
           <li key={contact.id}>
-            {contact.name} : {contact.number}
+            <p>
+              {contact.name} : {contact.number}
+            </p>
+            <button
+              className={style.btn}
+              type="button"
+              id={contact.id}
+              onClick={handleDelete}
+            >
+              Delete
+            </button>
           </li>
         ))}
       </ul>

@@ -40,6 +40,14 @@ class App extends Component {
     this.setState({ filter: e.currentTarget.value });
   };
 
+  handleDelete = e => {
+    const idBtn = e.currentTarget.id;
+
+    const filteredArray = this.state.contacts.filter(item => item.id !== idBtn);
+
+    this.setState({ contacts: filteredArray });
+  };
+
   render() {
     const { filter } = this.state;
 
@@ -55,7 +63,10 @@ class App extends Component {
         <ContactForm handleAddContact={this.handleAddContact} />
         <h2>Contacts</h2>
         <Filter filter={filter} handleFilter={this.handleFilter} />
-        <ContactList contacts={filteredContacts} />
+        <ContactList
+          contacts={filteredContacts}
+          handleDelete={this.handleDelete}
+        />
       </div>
     );
   }

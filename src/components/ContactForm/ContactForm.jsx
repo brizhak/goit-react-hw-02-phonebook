@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import './ContactForm.module.css';
+import style from './ContactForm.module.css';
 
 class ContactForm extends Component {
   static defaultProps = {
@@ -56,7 +56,9 @@ class ContactForm extends Component {
           />
         </label>
 
-        <button type="submit">Add contact</button>
+        <button type="submit" className={style.btn}>
+          Add contact
+        </button>
       </form>
     );
   }
