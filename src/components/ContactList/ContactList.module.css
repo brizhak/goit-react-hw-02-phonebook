@@ -1,7 +1,7 @@
 ul {
     display: flex;
     flex-direction: column;
-    width: 350px;
+    width: 400px;
     padding: 0;
     align-items: center;
     
@@ -10,7 +10,7 @@ li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 350px;
+    width: 400px;
 }
 .btn {
     cursor: pointer;
