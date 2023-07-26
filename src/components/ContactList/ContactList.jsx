@@ -8,7 +8,14 @@ class ContactList extends Component {
   };
 
   static propTypes = {
-    contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+    contacts: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        number: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+    handleDelete: PropTypes.func.isRequired,
   };
 
   render() {

@@ -11,23 +11,32 @@ class ContactForm extends Component {
     handleAddContact: PropTypes.func.isRequired,
   };
 
-  /*  state = {
+  state = {
     name: '',
     number: '',
+  };
+
+  onSubmitForm = e => {
+    e.preventDefault();
+
+    this.props.handleAddContact(this.state);
+    this.setState({
+      name: '',
+      number: '',
+    });
   };
 
   handleInput = e => {
     const input = e.target.name;
     const inputValue = e.target.value;
     this.setState({ [input]: inputValue });
-  }; */
+  };
 
   render() {
-    const { handleAddContact } = this.props;
-    /* const { name, number } = this.state; */
+    const { name, number } = this.state;
 
     return (
-      <form onSubmit={handleAddContact}>
+      <form onSubmit={this.onSubmitForm}>
         <label>
           Name
           <input
@@ -37,8 +46,8 @@ class ContactForm extends Component {
             placeholder="Enter name"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
-            /* value={name} */
-            /* onChange={this.handleInput} */
+            value={name}
+            onChange={this.handleInput}
           />
         </label>
 
@@ -51,8 +60,8 @@ class ContactForm extends Component {
             placeholder="Enter phone number"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
-            /* value={number} */
-            /* onChange={this.handleInput} */
+            value={number}
+            onChange={this.handleInput}
           />
         </label>
 

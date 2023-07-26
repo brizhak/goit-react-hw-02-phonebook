@@ -16,13 +16,7 @@ class App extends Component {
     filter: '',
   };
 
-  handleAddContact = e => {
-    e.preventDefault();
-
-    const form = e.currentTarget;
-    const name = form.elements.name.value;
-    const number = form.elements.number.value;
-
+  handleAddContact = ({ name, number }) => {
     const id = nanoid();
 
     const existingContact = this.state.contacts.find(
@@ -37,8 +31,6 @@ class App extends Component {
     this.setState(prevState => ({
       contacts: [...prevState.contacts, { name, id, number }],
     }));
-
-    form.reset();
   };
 
   handleFilter = e => {
